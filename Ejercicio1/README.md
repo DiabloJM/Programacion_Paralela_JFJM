@@ -8,11 +8,15 @@ Consiste en combinar linealmente dos o más matrices mediante la adición de sus
 
 Proceso para la multiplicación de matrices:
 Dadas las matrices Z y Y de n filas y m columnas:
+
 ![Matrices cuadradas en orden n](https://economipedia.com/wp-content/uploads/Captura-de-pantalla-2019-10-10-a-les-15.03.40.png)
+
 Podemos multiplicar las matrices anteriores si el número de las filas de la matriz Z es igual al número de columnas de la matriz Y.
 La dimensión de la matriz resultado es la combinación de la dimensión de las matrices. En otras palabras, la dimensión de la matriz resultado serán las columnas de la primera matriz y las filas de la segunda matriz.
 Una vez determinado que podemos multiplicar las matrices, multiplicamos los elementos de cada fila por cada columna y los sumamos de la forma que solo quede un número en el punto donde los óvalos azules anteriores coindicen.
+
 ![Esquema de multiplicación de matrices](https://economipedia.com/wp-content/uploads/Captura-de-pantalla-2019-10-10-a-les-15.19.33.png)
+
 Sumamos las multiplicaciones de cada elemento y obtendremos nuestra matriz resultado.
 Código:
 ```
