@@ -1,6 +1,6 @@
 <dl>
   <dt>Introducción:</dt>
-  <dd>Es un entorno de desarrollo para crear aplicaciones aceleradas por GPU de alto rendimiento. </dd>
+  <dd>CUDA es un entorno de desarrollo para crear aplicaciones aceleradas por GPU de alto rendimiento. </dd>
   <dt>CUDA Cores:</dt>
   <dd>Procesadores paralelos que se encargan de procesar todos los datos que entran y salen de la GPU. Sus tareas cotidianas son renderizar objetos 3D, dibujar modelos, comprender y resolver la iluminación y sombreado de una escena, etc.</dd>
   <dt>Threads:</dt>
@@ -16,6 +16,7 @@
   <dd>
   The CUDA Handbook: A Comprehensive Guide to GPU Programming, Nicholas Wilt,
   Addison-Wesley Professional, 2013.
+
     
   CUDA by Example: An Introduction to General-Purpose GPU Programming, Jason
   Sanders, Edward Kandrot, Addison-Wesley Professional, 2010.
