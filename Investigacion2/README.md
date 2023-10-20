@@ -148,16 +148,21 @@ Situaciones donde un if hace que un hilo ejecute una función u otra, hace que e
 La operación ***reduce*** es el ejemplo perfecto de realizar la misma operación en un largo grupo de números. La operación en si consiste en encontrar la suma aritmética de los números, una operación que ya vimos en un ejemplo pasado.
 
 **Ocupación:**
+
 La ocupación es la cantidad de warps activos en la GPU en ese momento. El valor de ocupación va de 0 a 1 y esta se puede calcular de la siguiente manera:
-![Ocupación](/Investigacion2/Imagenes/Ocupacion.png)
+
+![Ocupacion](/Investigacion2/Imagenes/Ocupacion.PNG)
+
 Mientrás más alto sea el valor de la ocupación, más parte de la GPU esta en uso. El hecho de que no siempre sea 1 no significa que haya un error en tu código o en la GPU, simplemente no siempre es necesario utilizar el 100% de la GPU.
 
-**Memoria Compartida**
+**Memoria Compartida:**
+
 Como ya vimos con anterioridad, la memoria compartida es un acceso de memoria rápida de un tamaño de 64 KB disponible en cada SM. Podemos hacer que nuestros arreglos, de tipo escalar, vaya a la memoria compartida. Esto mediante el prefijo __shared__.
 
 Ejemplo:    __shared__ float data[256];
 
 **Restrict:**
+
 El preijo __restrict es utilizado para los punteros y ayuda a mejorar un 44% el rendimiento, ya que le dice al compilador que el puntero no tiene un alias y la optimización agresiva es segura. Esto se hace ya que cuando un puntero es declarado de la forma tradicional, el compilador no tiene forma de saber si no hay otros punteros en la misma dirección de memoria en otra parte del código, por eso el compilador le pone un alias al punteo por si es que hay otro puntero en esa dirección de memoria. Actualmente el poner alias a los punteros es algo completamente innecesario pero es una práctica que los compiladores siguen teniendo.
 
 Ejemplo:   float* __restrict C
