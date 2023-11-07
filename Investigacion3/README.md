@@ -10,7 +10,7 @@ CUDA utiliza la arquitectura *Single Instruction Multiple Thread (SIMT)*, un der
 
 Fue la primera arquitectura informática de GPU completa que ofreció las funciones necesarias para las aplicaciones HPC más exigentes. Fue ampliamente adoptada para acelerar cargas de trabajo de producción.
 
-![Fermi](/Imagenes/Fermi.png)
+![Fermi](/Investigacion3/Imagenes/Fermi.png)
 
 Fermi cuenta con hasta 512 núcleos de acelerador, llamados *CUDA cores*.
 
@@ -32,7 +32,7 @@ Esta arquitectura contiene 15 SMs y 6 controladores de memoria de 64 bits. Las 3
 * Paralelismo dinámico
 * Hyper-Q
 
-![Kepler](/Imagenes/Kepler.png)
+![Kepler](/Investigacion3/Imagenes/Kepler.png)
 
 Cada SM consistia de 192 CUDA cores de precisión simple, 64 unidades de precisión doble, 32 unidades de función especial (SFU) y 32 unidades load/store (LD/ST).
 
@@ -40,7 +40,7 @@ El *Paralelismo dinámico* fue una nueva característica introducida en las GPUs
 
 Anteriormente la CPU lanzaba cada kernel en la GPU, pero con el paralelismo dinámico, la GPU puede lanzar kernels anidados, eliminando la necesidad de comunicarse con la CPU constantemente. 
 
-![Paralelismo_Dinamico](/Imagenes/ParalelismoDinamico.png)
+![Paralelismo_Dinamico](/Investigacion3/Imagenes/ParalelismoDinamico.png)
 
 El *Hyper-Q* agrega más conexiones de hardware simultáneas entre la CPU y la GPU, permitiendo a los núcleos de la CPU ejecutar más tareas simultáneamente en la GPU. Esto dio como resultado que incrementara el uso de la GPU y disminuyera el tiempo de espera de la CPU.
 
@@ -65,7 +65,7 @@ En uno 3D se calcula de la siguiente manera:
 
 El número de warps por bloque de threads puede ser determinado de la siguiente manera:
 
-![WarpsPerBlock](/Imagenes/WarpsPerBlock.png)
+![WarpsPerBlock](/Investigacion3/Imagenes/WarpsPerBlock.png)
 
 **Divergencia de Warps**
 
@@ -81,7 +81,7 @@ Para evitar esto, podemos darle condicionales diferentes a diferentes warps, as�
 
 La *eficiencia de rama* se define como la relación entre ramas no divergentes y ramas totales. Se puede calcular de con la siguiente fórmula:
 
-![BranchEfficiency](/Imagenes/BranchEfficiency.png)
+![BranchEfficiency](/Investigacion3/Imagenes/BranchEfficiency.png)
 
 **Ocultar la latencia**
 
@@ -100,7 +100,7 @@ Es así como con estos tipos de instrucciones podemos ocultar la latencia.
 
 La ocupancia es la cantidad de warps que están siendo utilizados dentro de un SM. Esta se puede calcular de la siguiente forma:
 
-![Ocupancia](/Imagenes/Ocupancia.png)
+![Ocupancia](/Investigacion3/Imagenes/Ocupancia.png)
 
 Apuntamos a tener una ocupancia de 1 (o 100%), sin embargo no siempre va a ser así ya que no siempre es necesario utilizar el 100% de la GPU.
 
@@ -117,7 +117,7 @@ Ya que muchas API de CUDA fueron llamadas y todos los kernel lanzados son asincr
 
 Ya que los warps de un bloque de hilos son ejecutados sin un orden definido, CUDA nos da la habilidad de sincronizar su ejecución con una barrera de bloque local. Podemos hacerlo de la siguiente forma:
 
-![Sincronizacion](/Imagenes/Sincronizacion.png)
+![Sincronizacion](/Investigacion3/Imagenes/Sincronizacion.png)
 
 Cuando utilizamos *__syncthreads*, cada hilo en el mismo bloque de hilos debe de esperar a que el resto de hilos alcancen este punto de sincronización. Esta función es utilizada para coordinar la comunicación entre los hilos en el mismo bloque, sin embargo esto puede afectar de forma negativa al rendimiento al forzar a los warps a quedarse en espera.
 
@@ -148,7 +148,7 @@ Actualmente las computadoras utilizan una jerarquía de memoria de latencia prog
 
 La jerarquía de memoria consiste en múltiples niveles de memoria, con difetente latencia, anchos de banda y capacidades. A medida que la latencia de un espacio de memoria aumenta, también aumenta su capacidad.
 
-![Jerarquia](/Imagenes/Jerarquia.png)
+![Jerarquia](/Investigacion3/Imagenes/Jerarquia.png)
 
 **Modelo de Memoria CUDA**
 
@@ -233,8 +233,8 @@ Hay una caché L1 para cada SM y una caché L2 compartida por todos los SMs. Amb
 
 La siguiente tabla muestra la declaración de variables en CUDA y su correspondiente locación de memoria, alcance, tiempo de vida y atributo.
 
-![VariableTable](/Imagenes/VariableTable.png)
-![VariableTable](/Imagenes/VariableTable2.png)
+![VariableTable](/Investigacion3/Imagenes/VariableTable.png)
+![VariableTable](/Investigacion3/Imagenes/VariableTable2.png)
 
 La cruz simboliza que la variable puede ser escalar o un arreglo.
 
